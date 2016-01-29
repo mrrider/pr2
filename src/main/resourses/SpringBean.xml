@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="w201" class="com.kozak.Mercedes">
+		<constructor-arg value="215" />
+	</bean>
+	<bean id="e39" class="com.kozak.BMW" />
+	<bean id="amg" class="com.kozak.Amg"></bean>
+	<bean id="amgMercedes" class="com.kozak.AmgMercedes">
+		<constructor-arg value="255" />
+		<constructor-arg ref="amg" />
+	</bean>
+
+	<bean id="theTrack" class="com.kozak.Track" factory-method="getInstance" />
+
+	<bean id="Brrrrr" class="com.kozak.Brrrrr" />
+	<bean id="Iuiuiuiu" class="com.kozak.Iuiuiuiu" />
+	<bean id="AlpinaBmw" class="com.kozak.AlpinaBmw">
+		<property name="horsepower" value="455" />
+		<property name="doVoice">
+			<bean class="com.kozak.Brrrrr" />
+		</property>
+	</bean>
+
+	<bean id="audi" class="com.kozak.Audi">
+		<property name="voices">
+			<list>
+				<ref bean="Iuiuiuiu" />
+				<ref bean="Brrrrr" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="tuningAudi" class="com.kozak.TuningAudi">
+		<property name="voicess">
+			<map>
+				<entry key="Iuiuiuiu" value-ref="Iuiuiuiu" />
+				<entry key="Brrrrr" value-ref="Brrrrr" />
+			</map>
+		</property>
+
+	</bean>
+
+
+</beans>
